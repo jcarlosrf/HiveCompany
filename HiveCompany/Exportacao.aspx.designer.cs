@@ -11,7 +11,7 @@ namespace HiveCompany
 {
 
 
-    public partial class _Default
+    public partial class Exportacao
     {
 
         /// <summary>
@@ -33,6 +33,15 @@ namespace HiveCompany
         protected global::System.Web.UI.UpdatePanel updMapa;
 
         /// <summary>
+        /// lblMessage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMessage;
+
+        /// <summary>
         /// ucLoader control.
         /// </summary>
         /// <remarks>
@@ -42,21 +51,39 @@ namespace HiveCompany
         protected global::HiveCompany.Controls.ucLoader ucLoader;
 
         /// <summary>
-        /// lblArquivos control.
+        /// lblCidades control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblArquivos;
+        protected global::System.Web.UI.WebControls.Label lblCidades;
 
         /// <summary>
-        /// btnSalvar control.
+        /// chkCidades control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSalvar;
+        protected global::System.Web.UI.WebControls.CheckBox chkCidades;
+
+        /// <summary>
+        /// btnSearch control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSearch;
+
+        /// <summary>
+        /// dgvDados control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView dgvDados;
     }
 }

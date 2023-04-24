@@ -1,5 +1,7 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="HiveCompany.SiteMaster" %>
 
+<%@ Register TagPrefix="asp" Namespace="System.Web.UI" Assembly="System.Web"%>
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -37,6 +39,9 @@
                 <asp:ScriptReference Name="WebFormsBundle" />
                 <%--Site Scripts--%>
                 <asp:ScriptReference Path="~/Scripts/WebForms/mapas.js" />
+                <asp:ScriptReference Path="~/Scripts/WebForms/ParseKmlFile.js" />
+
+                
             </Scripts>
         </asp:ScriptManager>
 
@@ -56,7 +61,7 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li><a runat="server" href="~/">Áreas</a></li>
-                        <li><a runat="server" href="~/About">Exportação</a></li>
+                        <li><a runat="server" href="~/Exportacao">Exportação</a></li>
                     </ul>
                 </div>
 

@@ -1,0 +1,19 @@
+﻿
+<asp:GridView runat="server" CssClass="grid"  GridLines="None">
+    <RowStyle CssClass="gridRow" />
+    <EmptyDataRowStyle CssClass="summary" />
+    <PagerStyle CssClass="gridPager" />
+    <SelectedRowStyle CssClass="gridSelectedRow" />
+    <HeaderStyle CssClass="gridHeader" />
+    <EditRowStyle CssClass="gridRow" />
+    <AlternatingRowStyle CssClass="gridAlternatingRow" />
+</asp:GridView>
+
+<asp:GridView runat="server" CssClass="grid gridViagem"  GridLines="None" SkinId="gridViagem" >
+    <RowStyle CssClass="gridRow" />
+    <EmptyDataRowStyle CssClass="summary" />
+    <PagerStyle CssClass="gridPager" />    
+    <HeaderStyle CssClass="gridHeader" />
+    <EditRowStyle CssClass="gridRow" />
+    <AlternatingRowStyle CssClass="gridAlternatingRow" />
+</asp:GridView>
