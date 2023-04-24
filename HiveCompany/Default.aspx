@@ -3,7 +3,7 @@
 <%@ Register Src="~/Controls/ucLoader.ascx" TagPrefix="uc1" TagName="ucLoader" %>
 <asp:Content ID="HeaderContent" ContentPlaceHolderID="HeadContent" runat="server">
     <script async
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCKrcc-cBCWC3ZdpYi37nAksoq2NbUCK8o&callback=initMap">
+        src="https://maps.googleapis.com/maps/api/js?key=[MyKey]&callback=initMap">
     </script>
 </asp:Content>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
