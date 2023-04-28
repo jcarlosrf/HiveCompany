@@ -1,4 +1,6 @@
-﻿
+﻿<asp:TextBox   runat="server" CSSClass="text100 form-control text"  SkinID="text100"/>
+<asp:Label     runat="server" CSSClass="input-group-addon labelItem" SkinID="labelItem" />
+
 <asp:GridView runat="server" CssClass="grid"  GridLines="None">
     <RowStyle CssClass="gridRow" />
     <EmptyDataRowStyle CssClass="summary" />

@@ -1,6 +1,5 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="HiveCompany.SiteMaster" %>
 
-<%@ Register TagPrefix="asp" Namespace="System.Web.UI" Assembly="System.Web"%>
 
 <!DOCTYPE html>
 

@@ -41,7 +41,7 @@ textarea {
 /* Ajax Loader */
 .loader {
     position: absolute;
-    background: #808080 url(../Content/images/bluespinner.gif) no-repeat center center;
+    background: #808080 url(../../Content/images/bluespinner.gif) no-repeat center center;
     top: 0;
     left: 0;
     width: 100%;
@@ -90,7 +90,7 @@ textarea {
     border-color: inherit;
     background-position: center right !important;
     padding: 5px !important;
-    background-image: url(../Content/images/search_.png);
+    background-image: url(../../Content/images/search_.png);
     background-repeat: no-repeat !important;
     width: 100px !important;
     height: 40px !important;
@@ -103,7 +103,7 @@ textarea {
         border-color: inherit;
         background-position: center right !important;
         padding: 5px !important;
-        background-image: url(../Content/images/search_.png);
+        background-image: url(../../Content/images/search_.png);
         background-repeat: no-repeat !important;
         width: 100px !important;
         height: 40px !important;
@@ -221,3 +221,14 @@ textarea {
 
 /* GRID END *******************************************************/
 /******************************************************************/
+
+
+input.text {
+    text-transform: uppercase;
+    font-size: 14px !important;
+}
+
+
+input.text100 {
+    width: 100% !important;
+}

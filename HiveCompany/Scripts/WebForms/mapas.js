@@ -13,6 +13,11 @@ class Area {
     }
 }
 
+$(document).ready(function () {
+    initialize();
+   
+});
+
 window.initMap = initMap;
 
 function initMap() {
@@ -25,25 +30,28 @@ function initMap() {
         mapTypeId: google.maps.MapTypeId.ROADMAP
     };
 
-    map = new google.maps.Map(document.getElementById("mapa"), options);
+    map = new google.maps.Map(document.getElementById("mapDiv"), options);
+}
 
+function initialize() {
     let fileUpload = $('.kmlFile');
 
+    if (fileUpload.length > 0) {
+        fileUpload[0].onchange = function (e) {
+            var count = 0; // variável contador inicializada em 0
 
-    fileUpload[0].onchange = function (e) {       
-        var count = 0; // variável contador inicializada em 0
+            for (let i = 0; i < this.files.length; i++) {
+                let input = this.files[i];
+                parseDocumentKml(input, function () {
+                    count++; // incrementa o contador quando a leitura do arquivo é concluída
 
-        for (let i = 0; i < this.files.length; i++) {
-            let input = this.files[i];
-            parseDocumentKml(input, function () {
-                count++; // incrementa o contador quando a leitura do arquivo é concluída
-
-                if (count == fileUpload[0].files.length) { // verifica se todos os arquivos foram lidos
-                    saveSessionPoligonos(); // chama a função apenas quando todos os arquivos foram lidos
-                }
-            });
-        }
-    };
+                    if (count == fileUpload[0].files.length) { // verifica se todos os arquivos foram lidos
+                        saveSessionPoligonos(); // chama a função apenas quando todos os arquivos foram lidos
+                    }
+                });
+            }
+        };
+    }
 
     $('.btn-salvar-areas').click(function () {
         salvarAreas();
@@ -68,6 +76,9 @@ function saveSessionPoligonos() {
 
     map.setOptions(newOptions);
 
+    var cidade = '';
+    var uf = '';
+
     // Utiliza a função reverseGeocode() para buscar cidade e UF da coordenada
     geocoder.geocode({ 'location': latLng }, function (results, status) {
         if (status === 'OK') {
@@ -79,6 +90,16 @@ function saveSessionPoligonos() {
                     if (component.types.indexOf("locality") !== -1 || component.types.indexOf("administrative_area_level_2") !== -1) {
                         cidade = component.long_name;
                     }
+
+                    if (cidade == '' && component.types.indexOf("administrative_area_level_3") !== -1)
+                    {
+                        cidade = component.long_name;
+                    }
+
+                    if (cidade == '' && component.types.indexOf("administrative_area_level_4") !== -1) {
+                        cidade = component.long_name;
+                    }
+
                     if (component.types.indexOf("administrative_area_level_1") !== -1) {
                         uf = component.short_name;
                     }
@@ -153,14 +174,14 @@ function salvarAreas() {
                 const polygons = [];
                 const Poligonos = [];
 
+                var latlng = new google.maps.LatLng(-15.7217003, -48.1021774);
                 var options = {
                     zoom: 5,
                     center: latlng,
                     mapTypeId: google.maps.MapTypeId.ROADMAP
                 };
-
                 // Crie um novo objeto Map e vincule-o ao mesmo elemento HTML
-                map = new google.maps.Map(document.getElementById("mapa"), options);
+                map = new google.maps.Map(document.getElementById("mapDiv"), options);
             }
             else {
                 alert(retorno);

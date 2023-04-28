@@ -98,6 +98,8 @@ namespace HiveCompany
 
                     AreasResumos = rep.GetAreasResumo(chkCidades.Checked);
 
+                    if (!string.IsNullOrEmpty(txtUf.Text))
+                        AreasResumos = AreasResumos.Where(a => a.UF.Equals(txtUf.Text.ToUpper())).ToList();
 
 
                     dgvDados.AutoGenerateColumns = false;
@@ -106,14 +108,14 @@ namespace HiveCompany
 
                     if (AreasResumos.Count == 0)
                     {
-                        lblMessage.Text = "Nenhuma viagem enctrada.";
+                        lblMessage.Text = "Nenhuma área encontrada.";
                         lblMessage.Visible = true;
                     }
                 }
             }
             catch (Exception ex)
             {
-                lblMessage.Text = "Pesquisa de viagens indisponível. Tente mais tarde";
+                lblMessage.Text = "Pesquisa de áreas indisponível. Tente mais tarde";
                 lblMessage.Visible = true;
             }
         }

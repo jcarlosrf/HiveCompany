@@ -2,11 +2,12 @@
 
 <%@ Register Src="~/Controls/ucLoader.ascx" TagPrefix="uc1" TagName="ucLoader" %>
 <asp:Content ID="HeaderContent" ContentPlaceHolderID="HeadContent" runat="server">
-    <script async
-        src="https://maps.googleapis.com/maps/api/js?key=[MyKey]&callback=initMap">
-    </script>
+          
 </asp:Content>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=[MyKeyGoogleAPI]&callback=initMap">        
+    </script>  
     <fieldset id="Fieldset2" runat="server" class="fieldset">
         <legend class="legendFieldset well-sm">Carregar áreas de cobertura</legend>
 
@@ -14,7 +15,7 @@
         <asp:UpdatePanel ID="updMapa" runat="server" UpdateMode="Always">
             <ContentTemplate>
                 <uc1:ucLoader runat="server" ID="ucLoader" AssociatedUpdatePanelID="updMapa" />
-                <div id="mapa" style="height: 700px;" class="col-sm-12 col-md-10">
+                <div id="mapDiv" style="height: 700px;" class="col-sm-12 col-md-10">
                 </div>
                 <div class="col-vs-12 col-sm-2">
 

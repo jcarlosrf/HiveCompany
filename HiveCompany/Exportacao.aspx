@@ -26,12 +26,21 @@
                 <uc1:ucLoader runat="server" ID="ucLoader" AssociatedUpdatePanelID="updMapa" />
 
                 <div id="divBuscaDados" title="Buscar Registros" class="container-fluid">
-                    <div class="col-xs-6">
+                    <div class="col-xs-6 col-sm-4">
                         <asp:Label ID="lblCidades" runat="server" Text="Detalhar por cidade" AssociatedControlID="chkCidades"></asp:Label>
                         <asp:CheckBox ID="chkCidades" runat="server" AutoPostBack="false" />
                     </div>
 
-                    <div class="col-xs-6">
+                    <div class="col-xs-6 col-sm-4">
+                            <div class="input-group">
+                                <asp:Label ID="lblUf" runat="server" Text="Filtrar por UF" AssociatedControlID="txtUf"
+                                    SkinID="labelItem"></asp:Label>
+                                <asp:TextBox ID="txtUf" runat="server" placeholder="Uf" aria-describedby="basic-addon1"
+                                    SkinID="text100" ></asp:TextBox>
+                            </div>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-4">
                         <div class="right">
                             <asp:Button ID="btnSearch" Text="Pesquisar" runat="server" CssClass="btn btn-pesquisar btn-primary form-control" OnClick="btnSearch_Click" />
                         </div>
