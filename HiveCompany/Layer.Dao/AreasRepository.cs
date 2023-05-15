@@ -27,29 +27,32 @@ namespace HiveCompany.Dao
                     {
                         foreach (var area in areas)
                         {
-                            using (var command = new NpgsqlCommand("SELECT public.scire_inserir_area(@nome, @uf, @cidade, @coordenadas)", connection))
-                            {
-                                try
+                            
+
+                                using (var command = new NpgsqlCommand("SELECT public.scire_inserir_area(@nome, @uf, @cidade, @coordenadas)", connection))
                                 {
-
-                                    command.Parameters.AddWithValue("nome", area.nome);
-                                    command.Parameters.AddWithValue("uf", area.uf);
-                                    command.Parameters.AddWithValue("cidade", area.cidade.ToUpperInvariant());
-                                    command.Parameters.AddWithValue("coordenadas", area.coordenadas);
-
-                                    var result = (int)command.ExecuteScalar();
-
-                                    if (result == 0)
+                                    try
                                     {
-                                        transaction.Rollback();
-                                        return false;
+
+                                        command.Parameters.AddWithValue("nome", area.nome);
+                                        command.Parameters.AddWithValue("uf", area.uf);
+                                        command.Parameters.AddWithValue("cidade", area.cidade.ToUpperInvariant());
+                                        command.Parameters.AddWithValue("coordenadas", area.coordenadas);
+
+                                        var result = (int)command.ExecuteScalar();
+
+                                        if (result == 0)
+                                        {
+                                            transaction.Rollback();
+                                            return false;
+                                        }
+                                    }
+                                    catch (Exception ex)
+                                    {
+                                        throw ex;
                                     }
                                 }
-                                catch (Exception ex)
-                                {
-                                    throw ex;
-                                }
-                            }
+                            
                         }
 
                         transaction.Commit();

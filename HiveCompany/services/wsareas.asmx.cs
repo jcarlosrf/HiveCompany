@@ -37,15 +37,18 @@ namespace HiveCompany.services
 
                 foreach (var area in areas)
                 {
-                    string coordenada = area.coordenadas.Replace(",0 ", "? ").Replace(",0", "").Replace(",", " ").Replace("? ", ", ");
+                    string coordenada = area.coordenadas.Replace(",0 ", "? ").Replace(",0\n ", "? ").Replace(",0", "").Replace(",", " ").Replace("? ", ", ");
                     var coords = coordenada.Split(',');
 
                     if (coords[0] != coords[coords.Length - 1])
                         coordenada += ", " + coords[0];
 
+
                     area.coordenadas = coordenada;
                     area.cidade = cidade;
                     area.uf = uf;
+                    if (area.nome.Trim().Length > 50)
+                        area.nome = area.nome.Trim().Substring(0, 50);
 
                     SessionArea.Add(area);
                 }
